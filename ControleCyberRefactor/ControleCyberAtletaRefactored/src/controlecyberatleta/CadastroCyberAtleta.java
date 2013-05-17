@@ -54,8 +54,8 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
         jTextFieldTotalPartidas.setText("0");
         jTextFieldJogo.setText(null);
         jTextFieldTotalVitorias.setText("0");
-        telefonesListModel.clear();
-        premiacaoListModel.clear();
+        getTelefonesListModel().clear();
+        getPremiacaoListModel().clear();
         jComboBoxSexo.setSelectedIndex(0);
         jComboBoxFuncaoEquipe.setSelectedIndex(0);
         
@@ -65,46 +65,46 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
         ArrayList<String> telefones;
         ArrayList<Premiacao> premiacoes;
 
-        jTextFieldAltura.setText(Double.toString(umCyberAtleta.getAltura()));
-        jTextFieldBairro.setText(umCyberAtleta.getEndereco().getBairro());
-        jTextFieldCep.setText(umCyberAtleta.getEndereco().getCep());
-        jTextFieldCidade.setText(umCyberAtleta.getEndereco().getCidade());
-        jTextFieldComplemento.setText(umCyberAtleta.getEndereco().getComplemento());
-        jTextFieldCpf.setText(umCyberAtleta.getCpf());
-        if (umCyberAtleta.getDataNascimento() == null) {
+        jTextFieldAltura.setText(Double.toString(getUmCyberAtleta().getAltura()));
+        jTextFieldBairro.setText(getUmCyberAtleta().getEndereco().getBairro());
+        jTextFieldCep.setText(getUmCyberAtleta().getEndereco().getCep());
+        jTextFieldCidade.setText(getUmCyberAtleta().getEndereco().getCidade());
+        jTextFieldComplemento.setText(getUmCyberAtleta().getEndereco().getComplemento());
+        jTextFieldCpf.setText(getUmCyberAtleta().getCpf());
+        if (getUmCyberAtleta().getDataNascimento() == null) {
             jTextFieldDataNascimento.setText(null);
         } else {
-            jTextFieldDataNascimento.setText(dateFormat.format(umCyberAtleta.getDataNascimento()));
+            jTextFieldDataNascimento.setText(dateFormat.format(getUmCyberAtleta().getDataNascimento()));
         }
-        jTextFieldPosicaoRanking.setText(Integer.toString(umCyberAtleta.getPosicaoRanking()));
-        jComboBoxEstado.setSelectedItem(umCyberAtleta.getEndereco().getEstado());
-        jTextFieldLogradouro.setText(umCyberAtleta.getEndereco().getLogradouro());
-        jTextFieldNome.setText(umCyberAtleta.getNome());
-        jTextFieldNomeMae.setText(umCyberAtleta.getNomeMae());
-        jTextFieldNomePai.setText(umCyberAtleta.getNomePai());
-        jTextFieldNumero.setText(umCyberAtleta.getEndereco().getNumero().toString());
-        jTextFieldPais.setText(umCyberAtleta.getEndereco().getPais());
-        jTextFieldPeso.setText(Double.toString(umCyberAtleta.getPeso()));
-        jTextFieldRg.setText(umCyberAtleta.getRg());
-        jTextFieldTotalDerrotas.setText(Integer.toString(umCyberAtleta.getTotalDerrotas()));
-        jTextFieldEquipe.setText(umCyberAtleta.getEquipe());
-        jTextFieldTotalPartidas.setText(Integer.toString(umCyberAtleta.getTotalPartidas()));
-        jTextFieldJogo.setText(umCyberAtleta.getJogo());
-        jTextFieldTotalVitorias.setText(Integer.toString(umCyberAtleta.getTotalVitorias()));
+        jTextFieldPosicaoRanking.setText(Integer.toString(getUmCyberAtleta().getPosicaoRanking()));
+        jComboBoxEstado.setSelectedItem(getUmCyberAtleta().getEndereco().getEstado());
+        jTextFieldLogradouro.setText(getUmCyberAtleta().getEndereco().getLogradouro());
+        jTextFieldNome.setText(getUmCyberAtleta().getNome());
+        jTextFieldNomeMae.setText(getUmCyberAtleta().getNomeMae());
+        jTextFieldNomePai.setText(getUmCyberAtleta().getNomePai());
+        jTextFieldNumero.setText(getUmCyberAtleta().getEndereco().getNumero().toString());
+        jTextFieldPais.setText(getUmCyberAtleta().getEndereco().getPais());
+        jTextFieldPeso.setText(Double.toString(getUmCyberAtleta().getPeso()));
+        jTextFieldRg.setText(getUmCyberAtleta().getRg());
+        jTextFieldTotalDerrotas.setText(Integer.toString(getUmCyberAtleta().getTotalDerrotas()));
+        jTextFieldEquipe.setText(getUmCyberAtleta().getEquipe());
+        jTextFieldTotalPartidas.setText(Integer.toString(getUmCyberAtleta().getTotalPartidas()));
+        jTextFieldJogo.setText(getUmCyberAtleta().getJogo());
+        jTextFieldTotalVitorias.setText(Integer.toString(getUmCyberAtleta().getTotalVitorias()));
 
-        telefonesListModel.clear();
-        telefones = umCyberAtleta.getTelefones();
+        getTelefonesListModel().clear();
+        telefones = getUmCyberAtleta().getTelefones();
         for (String t : telefones) {
-            telefonesListModel.addElement(t);
+            getTelefonesListModel().addElement(t);
         }
 
-        premiacaoListModel.clear();
-        premiacoes = umCyberAtleta.getPremiacoes();
+        getPremiacaoListModel().clear();
+        premiacoes = getUmCyberAtleta().getPremiacoes();
         for (Premiacao p : premiacoes) {
-            premiacaoListModel.addElement(p);
+            getPremiacaoListModel().addElement(p);
         }
 
-        switch (umCyberAtleta.getSexo()) {
+        switch (getUmCyberAtleta().getSexo()) {
             case ConstantesCadastro.SEXO_MASCULINO_VALOR:
                 jComboBoxSexo.setSelectedIndex(ConstantesCadastro.SEXO_MASCULINO_INDICE);
                 break;
@@ -113,7 +113,7 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
                 break;
         }
 
-        switch (umCyberAtleta.getFuncaoEquipe()) {
+        switch (getUmCyberAtleta().getFuncaoEquipe()) {
             case ConstantesCadastro.FUNCAO_CAPITAO_VALOR:
                 jComboBoxFuncaoEquipe.setSelectedIndex(ConstantesCadastro.FUNCAO_CAPITAO_INDICE);
                 break;
@@ -187,43 +187,43 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
     }
 
     private void habilitarDesabilitarCampos() {
-        boolean registroSelecionado = (umCyberAtleta != null);
-        jTextFieldAltura.setEnabled(modoAlteracao);
-        jTextFieldBairro.setEnabled(modoAlteracao);
-        jTextFieldCep.setEnabled(modoAlteracao);
-        jTextFieldCidade.setEnabled(modoAlteracao);
-        jTextFieldComplemento.setEnabled(modoAlteracao);
-        jTextFieldCpf.setEnabled(modoAlteracao);
-        jTextFieldDataNascimento.setEnabled(modoAlteracao);
-        jTextFieldPosicaoRanking.setEnabled(modoAlteracao);
-        jComboBoxEstado.setEnabled(modoAlteracao);
-        jTextFieldLogradouro.setEnabled(modoAlteracao);
-        jTextFieldNome.setEnabled(modoAlteracao);
-        jTextFieldNomeMae.setEnabled(modoAlteracao);
-        jTextFieldNomePai.setEnabled(modoAlteracao);
-        jTextFieldNumero.setEnabled(modoAlteracao);
-        jTextFieldPais.setEnabled(modoAlteracao);
-        jTextFieldPeso.setEnabled(modoAlteracao);
-        jTextFieldRg.setEnabled(modoAlteracao);
-        jTextFieldTotalDerrotas.setEnabled(modoAlteracao);
-        jTextFieldTotalDesistencias.setEnabled(modoAlteracao);
-        jTextFieldEquipe.setEnabled(modoAlteracao);
-        jTextFieldTotalPartidas.setEnabled(modoAlteracao);
-        jTextFieldJogo.setEnabled(modoAlteracao);
-        jTextFieldTotalVitorias.setEnabled(modoAlteracao);
-        jButtonNovo.setEnabled(modoAlteracao == false);
-        jButtonAlterar.setEnabled(modoAlteracao == false && registroSelecionado == true);
-        jButtonExcluir.setEnabled(modoAlteracao == false && registroSelecionado == true);
-        jButtonPesquisar.setEnabled(modoAlteracao == false);
-        jButtonSalvar.setEnabled(modoAlteracao);
-        jButtonCancelar.setEnabled(modoAlteracao);
-        jButtonAdicionarTelefone.setEnabled(modoAlteracao);
-        jButtonRemoverTelefone.setEnabled(modoAlteracao);
-        jButtonAdicionarPremiacao.setEnabled(modoAlteracao);
-        jButtonRemoverPremiacao.setEnabled(modoAlteracao);
-        jComboBoxSexo.setEnabled(modoAlteracao);
-        jComboBoxFuncaoEquipe.setEnabled(modoAlteracao);
-        jTableListaCyberAtletas.setEnabled(modoAlteracao == false);
+        boolean registroSelecionado = (getUmCyberAtleta() != null);
+        jTextFieldAltura.setEnabled(isModoAlteracao());
+        jTextFieldBairro.setEnabled(isModoAlteracao());
+        jTextFieldCep.setEnabled(isModoAlteracao());
+        jTextFieldCidade.setEnabled(isModoAlteracao());
+        jTextFieldComplemento.setEnabled(isModoAlteracao());
+        jTextFieldCpf.setEnabled(isModoAlteracao());
+        jTextFieldDataNascimento.setEnabled(isModoAlteracao());
+        jTextFieldPosicaoRanking.setEnabled(isModoAlteracao());
+        jComboBoxEstado.setEnabled(isModoAlteracao());
+        jTextFieldLogradouro.setEnabled(isModoAlteracao());
+        jTextFieldNome.setEnabled(isModoAlteracao());
+        jTextFieldNomeMae.setEnabled(isModoAlteracao());
+        jTextFieldNomePai.setEnabled(isModoAlteracao());
+        jTextFieldNumero.setEnabled(isModoAlteracao());
+        jTextFieldPais.setEnabled(isModoAlteracao());
+        jTextFieldPeso.setEnabled(isModoAlteracao());
+        jTextFieldRg.setEnabled(isModoAlteracao());
+        jTextFieldTotalDerrotas.setEnabled(isModoAlteracao());
+        jTextFieldTotalDesistencias.setEnabled(isModoAlteracao());
+        jTextFieldEquipe.setEnabled(isModoAlteracao());
+        jTextFieldTotalPartidas.setEnabled(isModoAlteracao());
+        jTextFieldJogo.setEnabled(isModoAlteracao());
+        jTextFieldTotalVitorias.setEnabled(isModoAlteracao());
+        jButtonNovo.setEnabled(isModoAlteracao() == false);
+        jButtonAlterar.setEnabled(isModoAlteracao() == false && registroSelecionado == true);
+        jButtonExcluir.setEnabled(isModoAlteracao() == false && registroSelecionado == true);
+        jButtonPesquisar.setEnabled(isModoAlteracao() == false);
+        jButtonSalvar.setEnabled(isModoAlteracao());
+        jButtonCancelar.setEnabled(isModoAlteracao());
+        jButtonAdicionarTelefone.setEnabled(isModoAlteracao());
+        jButtonRemoverTelefone.setEnabled(isModoAlteracao());
+        jButtonAdicionarPremiacao.setEnabled(isModoAlteracao());
+        jButtonRemoverPremiacao.setEnabled(isModoAlteracao());
+        jComboBoxSexo.setEnabled(isModoAlteracao());
+        jComboBoxFuncaoEquipe.setEnabled(isModoAlteracao());
+        jTableListaCyberAtletas.setEnabled(isModoAlteracao() == false);
     }
 
     private void salvarRegistro() {
@@ -258,68 +258,68 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
         endereco.setPais(jTextFieldPais.getText());
 
         telefones = new ArrayList<String>();
-        for (int i = 0; i < telefonesListModel.size(); i++) {
-            telefones.add(telefonesListModel.getElementAt(i).toString());
+        for (int i = 0; i < getTelefonesListModel().size(); i++) {
+            telefones.add(getTelefonesListModel().getElementAt(i).toString());
         }
 
         premiacoes = new ArrayList<Premiacao>();
-        for (int i = 0; i < premiacaoListModel.size(); i++) {
-            Premiacao premiacao = (Premiacao) premiacaoListModel.getElementAt(i);
+        for (int i = 0; i < getPremiacaoListModel().size(); i++) {
+            Premiacao premiacao = (Premiacao) getPremiacaoListModel().getElementAt(i);
             premiacoes.add(premiacao);
         }
 
-        if (novoRegistro == true) {
-            umCyberAtleta = new CyberAtleta(jTextFieldNome.getText());
+        if (isNovoRegistro() == true) {
+            setUmCyberAtleta(new CyberAtleta(jTextFieldNome.getText()));
         } else {
-            umCyberAtleta.setNome(jTextFieldNome.getText());
+            getUmCyberAtleta().setNome(jTextFieldNome.getText());
         }
-        umCyberAtleta.setEndereco(endereco);
-        umCyberAtleta.setTelefones(telefones);
-        umCyberAtleta.setPremiacoes(premiacoes);
-        umCyberAtleta.setDataNascimento(dataNascimento);
-        umCyberAtleta.setAltura(Double.parseDouble(jTextFieldAltura.getText()));
-        umCyberAtleta.setNomeMae(jTextFieldNomeMae.getText());
-        umCyberAtleta.setNomePai(jTextFieldNomePai.getText());
-        umCyberAtleta.setPeso(Double.parseDouble(jTextFieldPeso.getText()));
-        umCyberAtleta.setCpf(jTextFieldCpf.getText());
-        umCyberAtleta.setRg(jTextFieldRg.getText());
-        umCyberAtleta.setPosicaoRanking(Integer.parseInt(jTextFieldPosicaoRanking.getText()));
-        umCyberAtleta.setTotalDerrotas(Integer.parseInt(jTextFieldTotalDerrotas.getText()));
-        umCyberAtleta.setEquipe(String(jTextFieldEquipe.getText()));
-        umCyberAtleta.setTotalPartidas(Integer.parseInt(jTextFieldTotalPartidas.getText()));
-        umCyberAtleta.setJogo(String(jTextFieldJogo.getText()));
-        umCyberAtleta.setTotalVitorias(Integer.parseInt(jTextFieldTotalVitorias.getText()));
+        getUmCyberAtleta().setEndereco(endereco);
+        getUmCyberAtleta().setTelefones(telefones);
+        getUmCyberAtleta().setPremiacoes(premiacoes);
+        getUmCyberAtleta().setDataNascimento(dataNascimento);
+        getUmCyberAtleta().setAltura(Double.parseDouble(jTextFieldAltura.getText()));
+        getUmCyberAtleta().setNomeMae(jTextFieldNomeMae.getText());
+        getUmCyberAtleta().setNomePai(jTextFieldNomePai.getText());
+        getUmCyberAtleta().setPeso(Double.parseDouble(jTextFieldPeso.getText()));
+        getUmCyberAtleta().setCpf(jTextFieldCpf.getText());
+        getUmCyberAtleta().setRg(jTextFieldRg.getText());
+        getUmCyberAtleta().setPosicaoRanking(Integer.parseInt(jTextFieldPosicaoRanking.getText()));
+        getUmCyberAtleta().setTotalDerrotas(Integer.parseInt(jTextFieldTotalDerrotas.getText()));
+        getUmCyberAtleta().setEquipe(jTextFieldEquipe.getText());
+        getUmCyberAtleta().setTotalPartidas(Integer.parseInt(jTextFieldTotalPartidas.getText()));
+        getUmCyberAtleta().setJogo(jTextFieldJogo.getText());
+        getUmCyberAtleta().setTotalVitorias(Integer.parseInt(jTextFieldTotalVitorias.getText()));
 
         switch (jComboBoxSexo.getSelectedIndex()) {
             case ConstantesCadastro.SEXO_MASCULINO_INDICE:
-                umCyberAtleta.setSexo(ConstantesCadastro.SEXO_MASCULINO_VALOR);
+                getUmCyberAtleta().setSexo(ConstantesCadastro.SEXO_MASCULINO_VALOR);
                 break;
             case ConstantesCadastro.SEXO_FEMININO_INDICE:
-                umCyberAtleta.setSexo(ConstantesCadastro.SEXO_FEMININO_VALOR);
+                getUmCyberAtleta().setSexo(ConstantesCadastro.SEXO_FEMININO_VALOR);
                 break;
         }
 
        
         switch (jComboBoxFuncaoEquipe.getSelectedIndex()) {
             case ConstantesCadastro.FUNCAO_CAPITAO_INDICE:
-                umCyberAtleta.setFuncaoEquipe(ConstantesCadastro.FUNCAO_CAPITAO_VALOR);
+                getUmCyberAtleta().setFuncaoEquipe(ConstantesCadastro.FUNCAO_CAPITAO_VALOR);
                 break;
             case ConstantesCadastro.FUNCAO_MEMBRO_INDICE:
-                umCyberAtleta.setFuncaoEquipe(ConstantesCadastro.FUNCAO_MEMBRO_VALOR);
+                getUmCyberAtleta().setFuncaoEquipe(ConstantesCadastro.FUNCAO_MEMBRO_VALOR);
                 break;
         }
 
-        if (novoRegistro == true) {
-            controleCyberAtleta.adicionar(umCyberAtleta);
+        if (isNovoRegistro() == true) {
+            getControleCyberAtleta().adicionar(getUmCyberAtleta());
         }
-        modoAlteracao = false;
-        novoRegistro = false;
+        setModoAlteracao(false);
+        setNovoRegistro(false);
         this.carregarListaCyberAtletas();
         this.habilitarDesabilitarCampos();
     }
 
     private void carregarListaCyberAtletas() {
-        ArrayList<CyberAtleta> listaCyberAtletas = controleCyberAtleta.getListaCyberAtletas();
+        ArrayList<CyberAtleta> listaCyberAtletas = getControleCyberAtleta().getListaCyberAtletas();
         DefaultTableModel model = (DefaultTableModel) jTableListaCyberAtletas.getModel();
         model.setRowCount(0);
         for (CyberAtleta b : listaCyberAtletas) {
@@ -935,9 +935,9 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoActionPerformed
-        umCyberAtleta = null;
-        modoAlteracao = true;
-        novoRegistro = true;
+        setUmCyberAtleta(null);
+        setModoAlteracao(true);
+        setNovoRegistro(true);
         this.limparCampos();
         this.habilitarDesabilitarCampos();
         this.jTextFieldNome.requestFocus();
@@ -948,13 +948,13 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
-        if (novoRegistro == true) {
+        if (isNovoRegistro() == true) {
             this.limparCampos();
         } else {
             this.preencherCampos();
         }
-        modoAlteracao = false;
-        novoRegistro = false;
+        setModoAlteracao(false);
+        setNovoRegistro(false);
         this.habilitarDesabilitarCampos();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
@@ -969,15 +969,15 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldPesoFocusLost
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
-        modoAlteracao = true;
-        novoRegistro = false;
+        setModoAlteracao(true);
+        setNovoRegistro(false);
         this.habilitarDesabilitarCampos();
         this.jTextFieldNome.requestFocus();
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        this.controleCyberAtleta.remover(umCyberAtleta);
-        umCyberAtleta = null;
+        this.getControleCyberAtleta().remover(getUmCyberAtleta());
+        setUmCyberAtleta(null);
         this.limparCampos();
         this.carregarListaCyberAtletas();
         this.habilitarDesabilitarCampos();
@@ -987,14 +987,14 @@ private void jButtonAdicionarTelefoneActionPerformed(java.awt.event.ActionEvent 
     CadastroTelefone cadastro = new CadastroTelefone(this, true);
     cadastro.setVisible(true);
     if (cadastro.getTelefone() != null) {
-        telefonesListModel.addElement(cadastro.getTelefone());
+            getTelefonesListModel().addElement(cadastro.getTelefone());
     }
     cadastro.dispose();
 }//GEN-LAST:event_jButtonAdicionarTelefoneActionPerformed
 
 private void jButtonRemoverTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverTelefoneActionPerformed
     if (jListTelefones.getSelectedIndex() != -1) {
-        telefonesListModel.removeElementAt(jListTelefones.getSelectedIndex());
+            getTelefonesListModel().removeElementAt(jListTelefones.getSelectedIndex());
     }
 }//GEN-LAST:event_jButtonRemoverTelefoneActionPerformed
 
@@ -1006,12 +1006,12 @@ private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//
 }//GEN-LAST:event_jButtonPesquisarActionPerformed
 
     private void pesquisarCyberAtleta(String nome) {
-        CyberAtleta cyberatletaPesquisado = controleCyberAtleta.pesquisar(nome);
+        CyberAtleta cyberatletaPesquisado = getControleCyberAtleta().pesquisar(nome);
 
         if (cyberatletaPesquisado == null) {
             exibirInformacao("Cyber Atleta não encontrado.");
         } else {
-            this.umCyberAtleta = cyberatletaPesquisado;
+            this.setUmCyberAtleta(cyberatletaPesquisado);
             this.preencherCampos();
             this.habilitarDesabilitarCampos();
         }
@@ -1021,14 +1021,14 @@ private void jButtonAdicionarPremiacaoActionPerformed(java.awt.event.ActionEvent
     CadastroPremiacao cadastro = new CadastroPremiacao(this, true);
     cadastro.setVisible(true);
     if (cadastro.getPremiacao() != null) {
-        premiacaoListModel.addElement(cadastro.getPremiacao());
+            getPremiacaoListModel().addElement(cadastro.getPremiacao());
     }
     cadastro.dispose();
 }//GEN-LAST:event_jButtonAdicionarPremiacaoActionPerformed
 
 private void jButtonRemoverPremiacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverPremiacaoActionPerformed
     if (jListPremiacoes.getSelectedIndex() != -1) {
-        premiacaoListModel.removeElementAt(jListPremiacoes.getSelectedIndex());
+            getPremiacaoListModel().removeElementAt(jListPremiacoes.getSelectedIndex());
     }
 }//GEN-LAST:event_jButtonRemoverPremiacaoActionPerformed
 
@@ -1196,8 +1196,90 @@ private void jTextFieldDataNascimentoActionPerformed(java.awt.event.ActionEvent 
         return false;
     }
 
-    private String String(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+
+    /**
+     * @return the controleCyberAtleta
+     */
+    public ControleCyberAtleta getControleCyberAtleta() {
+        return controleCyberAtleta;
+    }
+
+    /**
+     * @param controleCyberAtleta the controleCyberAtleta to set
+     */
+    public void setControleCyberAtleta(ControleCyberAtleta controleCyberAtleta) {
+        this.controleCyberAtleta = controleCyberAtleta;
+    }
+
+    /**
+     * @return the umCyberAtleta
+     */
+    public CyberAtleta getUmCyberAtleta() {
+        return umCyberAtleta;
+    }
+
+    /**
+     * @param umCyberAtleta the umCyberAtleta to set
+     */
+    public void setUmCyberAtleta(CyberAtleta umCyberAtleta) {
+        this.umCyberAtleta = umCyberAtleta;
+    }
+
+    /**
+     * @return the modoAlteracao
+     */
+    public boolean isModoAlteracao() {
+        return modoAlteracao;
+    }
+
+    /**
+     * @param modoAlteracao the modoAlteracao to set
+     */
+    public void setModoAlteracao(boolean modoAlteracao) {
+        this.modoAlteracao = modoAlteracao;
+    }
+
+    /**
+     * @return the novoRegistro
+     */
+    public boolean isNovoRegistro() {
+        return novoRegistro;
+    }
+
+    /**
+     * @param novoRegistro the novoRegistro to set
+     */
+    public void setNovoRegistro(boolean novoRegistro) {
+        this.novoRegistro = novoRegistro;
+    }
+
+    /**
+     * @return the telefonesListModel
+     */
+    public DefaultListModel getTelefonesListModel() {
+        return telefonesListModel;
+    }
+
+    /**
+     * @param telefonesListModel the telefonesListModel to set
+     */
+    public void setTelefonesListModel(DefaultListModel telefonesListModel) {
+        this.telefonesListModel = telefonesListModel;
+    }
+
+    /**
+     * @return the premiacaoListModel
+     */
+    public DefaultListModel getPremiacaoListModel() {
+        return premiacaoListModel;
+    }
+
+    /**
+     * @param premiacaoListModel the premiacaoListModel to set
+     */
+    public void setPremiacaoListModel(DefaultListModel premiacaoListModel) {
+        this.premiacaoListModel = premiacaoListModel;
     }
 
    }
