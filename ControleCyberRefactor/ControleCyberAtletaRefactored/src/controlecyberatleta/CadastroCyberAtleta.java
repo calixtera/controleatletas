@@ -12,14 +12,6 @@ import javax.swing.table.DefaultTableModel;
 
 public class CadastroCyberAtleta extends javax.swing.JFrame {
 
-    private final byte SEXO_MASCULINO_INDICE = 0;
-    private final byte SEXO_FEMININO_INDICE = 1;
-    private final char SEXO_MASCULINO_VALOR = 'M';
-    private final char SEXO_FEMININO_VALOR = 'F';
-    private final byte FUNCAO_CAPITAO_INDICE = 0;
-    private final byte FUNCAO_MEMBRO_INDICE = 1;
-    private final char FUNCAO_CAPITAO_VALOR = 'C';
-    private final char FUNCAO_MEMBRO_VALOR = 'M';
     private DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
     private ControleCyberAtleta controleCyberAtleta;
     private CyberAtleta umCyberAtleta;
@@ -113,20 +105,20 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
         }
 
         switch (umCyberAtleta.getSexo()) {
-            case SEXO_MASCULINO_VALOR:
-                jComboBoxSexo.setSelectedIndex(SEXO_MASCULINO_INDICE);
+            case ConstantesCadastro.SEXO_MASCULINO_VALOR:
+                jComboBoxSexo.setSelectedIndex(ConstantesCadastro.SEXO_MASCULINO_INDICE);
                 break;
-            case SEXO_FEMININO_VALOR:
-                jComboBoxSexo.setSelectedIndex(SEXO_FEMININO_INDICE);
+            case ConstantesCadastro.SEXO_FEMININO_VALOR:
+                jComboBoxSexo.setSelectedIndex(ConstantesCadastro.SEXO_FEMININO_INDICE);
                 break;
         }
 
         switch (umCyberAtleta.getFuncaoEquipe()) {
-            case FUNCAO_CAPITAO_VALOR:
-                jComboBoxFuncaoEquipe.setSelectedIndex(FUNCAO_CAPITAO_INDICE);
+            case ConstantesCadastro.FUNCAO_CAPITAO_VALOR:
+                jComboBoxFuncaoEquipe.setSelectedIndex(ConstantesCadastro.FUNCAO_CAPITAO_INDICE);
                 break;
-            case FUNCAO_MEMBRO_VALOR:
-                jComboBoxFuncaoEquipe.setSelectedIndex(FUNCAO_MEMBRO_INDICE);
+            case ConstantesCadastro.FUNCAO_MEMBRO_VALOR:
+                jComboBoxFuncaoEquipe.setSelectedIndex(ConstantesCadastro.FUNCAO_MEMBRO_INDICE);
                 break;
         }
 
@@ -299,21 +291,21 @@ public class CadastroCyberAtleta extends javax.swing.JFrame {
         umCyberAtleta.setTotalVitorias(Integer.parseInt(jTextFieldTotalVitorias.getText()));
 
         switch (jComboBoxSexo.getSelectedIndex()) {
-            case SEXO_MASCULINO_INDICE:
-                umCyberAtleta.setSexo(SEXO_MASCULINO_VALOR);
+            case ConstantesCadastro.SEXO_MASCULINO_INDICE:
+                umCyberAtleta.setSexo(ConstantesCadastro.SEXO_MASCULINO_VALOR);
                 break;
-            case SEXO_FEMININO_INDICE:
-                umCyberAtleta.setSexo(SEXO_FEMININO_VALOR);
+            case ConstantesCadastro.SEXO_FEMININO_INDICE:
+                umCyberAtleta.setSexo(ConstantesCadastro.SEXO_FEMININO_VALOR);
                 break;
         }
 
        
         switch (jComboBoxFuncaoEquipe.getSelectedIndex()) {
-            case FUNCAO_CAPITAO_INDICE:
-                umCyberAtleta.setFuncaoEquipe(FUNCAO_CAPITAO_VALOR);
+            case ConstantesCadastro.FUNCAO_CAPITAO_INDICE:
+                umCyberAtleta.setFuncaoEquipe(ConstantesCadastro.FUNCAO_CAPITAO_VALOR);
                 break;
-            case FUNCAO_MEMBRO_INDICE:
-                umCyberAtleta.setFuncaoEquipe(FUNCAO_MEMBRO_VALOR);
+            case ConstantesCadastro.FUNCAO_MEMBRO_INDICE:
+                umCyberAtleta.setFuncaoEquipe(ConstantesCadastro.FUNCAO_MEMBRO_VALOR);
                 break;
         }
 
